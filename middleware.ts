@@ -1,9 +1,16 @@
 import { type NextRequest } from 'next/server'
 import { updateSession } from '@/utils/supabase/middleware'
 
+/* 
+Middleware.TS which is located at the project route essentially intercepts requests
+before they reach their inteded route.
+*/
+
+//We can import functions from other files... in this case updateSession is being imported.
+
 export async function middleware(request: NextRequest) {
   // update user's auth session
-  return await updateSession(request)
+  return await updateSession(request) //this this response from Supabase's auth service...
 }
 
 export const config = {
