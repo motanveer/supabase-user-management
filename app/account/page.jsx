@@ -3,7 +3,10 @@ import Form from './form'
 
 export default async function Example() {
   const supabase = createClient()
+  
   const user = (await supabase.auth.getUser()).data.user
+  
+
   
   const accountData = await supabase.from('profiles').select("*").eq('id', user.id);
   console.log(accountData)
